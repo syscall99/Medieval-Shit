@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://60l68d7bb8oc"]
 
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ig7tw"]
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -23,9 +25,11 @@ shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1594452498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.050000012, -8)
+use_collision = true
 size = Vector3(16, 0.1, 16)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=11414296]
+use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1720185750]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6500006, 0.99999994, -5.1)
@@ -75,5 +79,5 @@ size = Vector3(2.8, 1, 0.2)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.999999, 0.5, -8.500001)
 size = Vector3(3.4, 1, 0.2)
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1927323014]
-transform = Transform3D(0.32139367, 0.3420201, -0.8830223, -0.11697774, 0.9396927, 0.32139373, 0.9396927, 3.3670112e-08, 0.34201998, 0, 4.2, -6.2000003)
+[node name="ProtoController" parent="." unique_id=449658792 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.8000001, 0, -7.7000003)
