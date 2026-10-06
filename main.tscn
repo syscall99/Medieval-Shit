@@ -1,13 +1,79 @@
 [gd_scene format=3 uid="uid://60l68d7bb8oc"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
+
+[sub_resource type="Environment" id="Environment_0xm2m"]
+background_mode = 2
+sky = SubResource("Sky_ig7tw")
+glow_enabled = true
+
 [node name="Main" type="Node3D" unique_id=1367483810]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1930333301]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0500001, 0.79999995, 0.3)
-size = Vector3(3.1000001, 2.4, 0.2)
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=630792135]
+environment = SubResource("Environment_0xm2m")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D" unique_id=1227496889]
-transform = Transform3D(1.7, 0, 0, 0, -4.3711392e-08, -3.744, 0, 1.0000001, -1.6365544e-07, 0, -1.1, 0.050000012)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1343938455]
+transform = Transform3D(0.3420202, -0.8137978, 0.4698463, 3.8714354e-08, 0.4999999, 0.8660255, -0.9396926, -0.29619822, 0.17101006, 10.700001, 9.3, -13.4)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=1594452498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.050000012, -8)
+size = Vector3(16, 0.1, 16)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=11414296]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1720185750]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6500006, 0.99999994, -5.1)
+size = Vector3(6.9, 2, 0.2)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=728554028]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1000004, 1, -8)
+size = Vector3(0.2, 2, 6)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D2" unique_id=1740748864]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050001144, -0.5, 0.3000002)
 operation = 2
-height = 0.5
-sides = 20
+size = Vector3(0.5, 1, 0.6)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=458407635]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.950001, 1, -8.099999)
+size = Vector3(0.3, 2, 5.8)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D3" unique_id=1475721482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050001144, -0.5, -0.19999981)
+operation = 2
+size = Vector3(0.5, 1, 0.6)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1392247110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.500001, 1, -10.849999)
+size = Vector3(6.6, 2, 0.3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1689454121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0.5, -6.6000004)
+size = Vector3(0.2, 1, 2.8)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=636384223]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2000003, 1.0000244, -8.8)
+radius = 0.2
+height = 2.0000489
+sides = 64
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=888700499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.499999, 0.5, -6.900001)
+size = Vector3(2.8, 1, 0.2)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=235852106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.499999, 0.5, -10.100001)
+size = Vector3(2.8, 1, 0.2)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=653204070]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.999999, 0.5, -8.500001)
+size = Vector3(3.4, 1, 0.2)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1927323014]
+transform = Transform3D(0.32139367, 0.3420201, -0.8830223, -0.11697774, 0.9396927, 0.32139373, 0.9396927, 3.3670112e-08, 0.34201998, 0, 4.2, -6.2000003)
