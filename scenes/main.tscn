@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://60l68d7bb8oc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://bt5oj6bxhvdt2" path="res://scenes/chest.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://bpfar77sddyky" path="res://scenes/barrel.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://2myb6bbu7qit" path="res://scenes/ceiling.tscn" id="2_0wfyh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,6 +14,10 @@ sky_material = SubResource("ProceduralSkyMaterial_7dm0k")
 background_mode = 2
 sky = SubResource("Sky_ig7tw")
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iilet"]
+transparency = 1
+albedo_color = Color(1, 0.40784314, 1, 0.49019608)
 
 [node name="Main" type="Node3D" unique_id=1367483810]
 
@@ -34,7 +37,7 @@ use_collision = true
 size = Vector3(16, 0.1, 16)
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=11414296]
-use_collision = true
+material_override = SubResource("StandardMaterial3D_iilet")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1720185750]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6500006, 0.99999994, -5.1)
@@ -84,8 +87,5 @@ size = Vector3(2.8, 1, 0.2)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.999999, 0.5, -8.500001)
 size = Vector3(3.4, 1, 0.2)
 
-[node name="Chest" parent="." unique_id=226057575 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 7.6, 0, -7.4)
-
-[node name="Barrel" parent="." unique_id=1199147031 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7000003, 0.6, -7.1)
+[node name="Ceiling" parent="." unique_id=1657520706 instance=ExtResource("2_0wfyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.666636, 0, 0)
