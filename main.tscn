@@ -88,4 +88,4 @@ size = Vector3(3.4, 1, 0.2)
 transform = Transform3D(-2.1855694e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.1855694e-08, 7.6, 0, -7.4)
 
 [node name="Barrel" parent="." unique_id=1199147031 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7000003, 0.6, -7.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7000003, 0.6, -7.1)
