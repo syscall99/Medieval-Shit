@@ -1,7 +1,12 @@
 [gd_scene format=3 uid="uid://60l68d7bb8oc"]
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://2myb6bbu7qit" path="res://scenes/ceiling.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://80su6c42wm6j" path="res://scenes/pillar.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b81xve53c17e4" path="res://scenes/floor_stone.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dqxd1b5o73ppt" path="res://scenes/wall_corner.tscn" id="4_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://b7qsda3vfi7a0" path="res://scenes/wall.tscn" id="5_tipki"]
+[ext_resource type="PackedScene" uid="uid://bdw7bomfqktss" path="res://scenes/wall_doorway.tscn" id="6_85g3d"]
+[ext_resource type="PackedScene" uid="uid://ca8omd42y1k3n" path="res://scenes/wall_tsplit.tscn" id="7_choun"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,14 +20,10 @@ background_mode = 2
 sky = SubResource("Sky_ig7tw")
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iilet"]
-transparency = 1
-albedo_color = Color(1, 0.40784314, 1, 0.49019608)
-
 [node name="Main" type="Node3D" unique_id=1367483810]
 
-[node name="ProtoController" parent="." unique_id=449658792 instance=ExtResource("1_ig7tw")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.8000001, 0, -7.7000003)
+[node name="ProtoController" parent="." unique_id=1784978064 instance=ExtResource("1_ig7tw")]
+transform = Transform3D(-0.00093780085, 0, 0.9999995, 0, 1, 0, -0.9999995, 0, -0.00093780085, 25.036306, 0.50854707, -22.673893)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=630792135]
 environment = SubResource("Environment_0xm2m")
@@ -32,60 +33,89 @@ transform = Transform3D(0.3420202, -0.8137978, 0.4698463, 3.8714354e-08, 0.49999
 shadow_enabled = true
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=1594452498]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.050000012, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.926025, -0.0512947, -23.993652)
 use_collision = true
-size = Vector3(16, 0.1, 16)
+size = Vector3(39.85205, 0.1, 47.987305)
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=11414296]
-material_override = SubResource("StandardMaterial3D_iilet")
+[node name="Pillar" parent="." unique_id=262191022 instance=ExtResource("3_jyhfs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.155599, 0.15224633, -23.810812)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1720185750]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.6500006, 0.99999994, -5.1)
-size = Vector3(6.9, 2, 0.2)
+[node name="Floor_Stone" type="Node3D" parent="." unique_id=2133312315]
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=728554028]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1000004, 1, -8)
-size = Vector3(0.2, 2, 6)
+[node name="Floor_Stone" parent="Floor_Stone" unique_id=898594050 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.593708, 0.09870683, -14.905446)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D2" unique_id=1740748864]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050001144, -0.5, 0.3000002)
-operation = 2
-size = Vector3(0.5, 1, 0.6)
+[node name="Floor_Stone2" parent="Floor_Stone" unique_id=1893111231 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.594, 0.099, -18.905)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=458407635]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.950001, 1, -8.099999)
-size = Vector3(0.3, 2, 5.8)
+[node name="Floor_Stone3" parent="Floor_Stone" unique_id=922327936 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.594, 0.099, -22.905)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D/CSGBox3D3" unique_id=1475721482]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.050001144, -0.5, -0.19999981)
-operation = 2
-size = Vector3(0.5, 1, 0.6)
+[node name="Floor_Stone4" parent="Floor_Stone" unique_id=130078049 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.594, 0.099, -26.905)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1392247110]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.500001, 1, -10.849999)
-size = Vector3(6.6, 2, 0.3)
+[node name="Floor_Stone17" parent="Floor_Stone" unique_id=771036709 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.594, 0.099, -30.905)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1689454121]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.1, 0.5, -6.6000004)
-size = Vector3(0.2, 1, 2.8)
+[node name="Floor_Stone18" parent="Floor_Stone" unique_id=833597557 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.594, 0.099, -30.905)
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGCombiner3D" unique_id=636384223]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2000003, 1.0000244, -8.8)
-radius = 0.2
-height = 2.0000489
-sides = 64
+[node name="Floor_Stone19" parent="Floor_Stone" unique_id=2012677425 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.594, 0.099, -30.905)
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=888700499]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.499999, 0.5, -6.900001)
-size = Vector3(2.8, 1, 0.2)
+[node name="Floor_Stone20" parent="Floor_Stone" unique_id=1021892673 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.594, 0.099, -30.905)
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=235852106]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.499999, 0.5, -10.100001)
-size = Vector3(2.8, 1, 0.2)
+[node name="Floor_Stone5" parent="Floor_Stone" unique_id=1952464410 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.594, 0.099, -26.905)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D" unique_id=653204070]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.999999, 0.5, -8.500001)
-size = Vector3(3.4, 1, 0.2)
+[node name="Floor_Stone6" parent="Floor_Stone" unique_id=1129682233 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.594, 0.099, -26.905)
 
-[node name="Ceiling" parent="." unique_id=1657520706 instance=ExtResource("2_0wfyh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.666636, 0, 0)
+[node name="Floor_Stone7" parent="Floor_Stone" unique_id=2118796807 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.594, 0.099, -26.905)
+
+[node name="Floor_Stone8" parent="Floor_Stone" unique_id=2004452348 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.594, 0.099, -22.905)
+
+[node name="Floor_Stone9" parent="Floor_Stone" unique_id=242950007 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.594, 0.099, -18.905)
+
+[node name="Floor_Stone10" parent="Floor_Stone" unique_id=1839354743 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.594, 0.099, -14.905)
+
+[node name="Floor_Stone11" parent="Floor_Stone" unique_id=1617580605 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.594, 0.099, -14.905)
+
+[node name="Floor_Stone12" parent="Floor_Stone" unique_id=768478977 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.594, 0.099, -14.905)
+
+[node name="Floor_Stone13" parent="Floor_Stone" unique_id=1840590676 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.594, 0.099, -18.905)
+
+[node name="Floor_Stone14" parent="Floor_Stone" unique_id=307549851 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.594, 0.099, -22.905)
+
+[node name="Floor_Stone15" parent="Floor_Stone" unique_id=1233282740 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.594, 0.099, -22.905)
+
+[node name="Floor_Stone16" parent="Floor_Stone" unique_id=899729212 instance=ExtResource("3_sugp2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.594, 0.099, -18.905)
+
+[node name="Wall_Corner" parent="." unique_id=1133045442 instance=ExtResource("4_o6xl0")]
+transform = Transform3D(1.1924881e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924881e-08, 21.082397, 0.16785598, -12.916263)
+
+[node name="Wall_Corner2" parent="." unique_id=1868563739 instance=ExtResource("4_o6xl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.109, 0.167, -32.885353)
+
+[node name="Wall" parent="." unique_id=1415818635 instance=ExtResource("5_tipki")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.108616, 0.1655783, -16.92058)
+
+[node name="Wall_Doorway" parent="." unique_id=772353548 instance=ExtResource("6_85g3d")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.109, 0.166, -24.92)
+
+[node name="Wall_Tsplit" parent="." unique_id=78269549 instance=ExtResource("7_choun")]
+transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, 21.109, 0.166, -28.896)
+
+[node name="Wall_Tsplit2" parent="." unique_id=1966976884 instance=ExtResource("7_choun")]
+transform = Transform3D(-4.3711392e-08, 0, 1.0000001, 0, 1, 0, -1.0000001, 0, -4.3711392e-08, 21.109, 0.166, -20.92)
