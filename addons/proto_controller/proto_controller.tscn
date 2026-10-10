@@ -6,27 +6,27 @@
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
-radius = 0.2
-height = 0.825
+radius = 0.43408203
+height = 1.9764786
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.2
-height = 0.82187504
+radius = 0.4375
+height = 1.9768982
 
 [node name="ProtoController" type="CharacterBody3D" unique_id=1784978064]
 script = ExtResource("1_ucva2")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=2001043433]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4125, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9882393, 0)
 material_override = SubResource("StandardMaterial3D_iof21")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
 [node name="Collider" type="CollisionShape3D" parent="." unique_id=1847463704]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41093752, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9884491, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
 [node name="Head" type="Node3D" parent="." unique_id=593810003]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.70000005, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7170379, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=920349972]
